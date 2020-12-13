@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3, task 6</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        /*Урок 3, задача 6
+        Нарисовать горку с помощью console.log (используя цикл for), как показано на рисунке,
+        только у вашей горки должно быть 20 рядов, а не 5:
+        */
+
+        /**
+         * Функция рисует пирамиду
+         * @param {number} count количество рядов и элементов х в них 
+         */
+        function pyramid(count) {
+            let pyr = [];
+            for (let i = 0; i < count; i++) {
+                pyr.push('x');
+                console.log(pyr.join(''));
+            }
+        }
+        pyramid(20);
+    </script>
+</body>
+
+</html>
