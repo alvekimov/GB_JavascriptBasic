@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#">ссылка</a>
+    <a href="#"></a>
+    <a href="#">ссылка</a>
+    <a href="#"></a>
+
+    <!-- Задание.
+    1. Получите все ссылки.
+    2. Проверьте, есть ли в ссылке текст "ссылка", и если нет, то добавьте. -->
+
+    <script>
+        'use strict';
+        // вариант 1
+        /*let el = document.getElementsByTagName('a');
+        for (let i = 0; i < el.length; i++) {
+            if (!el[i].innerText.includes('ссылка')) {
+                el[i].insertAdjacentText('afterbegin', 'ссылка')
+            }
+        }*/
+        
+        // вариант 2
+        let el2 = document.querySelectorAll('a');
+        el2.forEach(function (element) {
+            if (!element.innerText.includes('ссылка')) {
+                element.insertAdjacentText('afterbegin', 'ссылка');
+                console.log('text "ссылка" added');
+            }
+        })
+    </script>
+</body>
+
+</html>

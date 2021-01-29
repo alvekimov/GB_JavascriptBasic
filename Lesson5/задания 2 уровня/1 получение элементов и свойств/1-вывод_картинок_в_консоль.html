@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="https://placeimg.com/100/100/animals" alt="">
+    <img src="https://placeimg.com/100/100/arch" alt="">
+    <img src="https://placeimg.com/100/100/people" alt="">
+
+    <!-- Задание. 
+    1. Сохраните в переменную коллекцию с картинками.
+    2. Пробегитесь по этой коллекции с помощью цикла или forEach
+    и выведите каждую картинку в консоль. -->
+    <script>
+        'use strict';
+        //вариант 1
+        let elImg1 = document.querySelectorAll('img');
+        elImg1.forEach(function (element) {
+            console.log(element.src);
+        });
+
+        //вариант 2
+        let elImg2 = document.getElementsByTagName('img');
+        for (let i = 0; i < elImg2.length; i++) {
+            console.log(elImg2[i].src);
+        }
+        //вариант 3
+        let elImg3 = document.images;
+        for (let i = 0; i < elImg3.length; i++) {
+            console.log(elImg3[i].src);
+        }
+    </script>
+
+</body>
+
+</html>
