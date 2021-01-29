@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2, task 6</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        /* Урок 2 задание 6*
+        рограмма должна спросить у пользователя число, это будет количество денег, которое он хочет положить на счет в банке.
+        м вывести число с текстом с соответствующим окончанием*/
+        let num = prompt('Введите сумму в ряблях для пополнения счета');
+
+        if (num == null || isNaN(Number(num)) || num == '') {
+            console.log('Произошла ошибка, попробуйте еще раз.');
+        } else if (num.slice(-1) == '0') {
+            console.log(`Вы положили на счет ${num} рублей`);
+        } else if (num.slice(-1) == '1') {
+            console.log(`Вы положили на счет ${num} рубль`);
+        } else if (5 <= Number(num) && Number(num) < 20) {
+            console.log(`Вы положили на счет ${num} рублей`);
+        } else if (num.slice(-1) === '2' || num.slice(-1) === '3' || num.slice(-1) === '4') {
+            console.log(`Вы положили на счет ${num} рубля`);
+        } else if (5 <= Number(num.slice(-1)) && Number(num.slice(-1)) <= 9) {
+            console.log(`Вы положили на счет ${num} рублей`);
+        }
+    </script>
+</body>
+
+</html>
