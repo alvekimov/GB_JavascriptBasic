@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4 Task 1.2 ES5</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        /*1.2 Сделайте в стиле es5, а затем в стиле es6 (по аналогии из урока),
+        а) конструктор Post, который принимает параметры author, text, date и сохраняет их как свойства объекта. 
+        Объекты типа Post должны иметь метод edit, который будет принимать текст и записывать его в свойство text объекта.
+        б) конструктор AttachedPost, который принимает параметры author, text, date. 
+        Проинициализируйте эти свойства с помощью конструктора Post, чтобы не дублировать код. 
+        Также в конструкторе AttachedPost должно создаваться свойство highlighted со значением false. 
+        Унаследуйте в объектах типа AttachedPost методы из Post.
+        Объекты типа AttachedPost должны иметь метод makeTextHighlighted, который будет назначать свойству highlighted значение true.
+        */
+
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        //заменяет текст
+        Post.prototype.edit = function (addText) {
+            this.text = addText;
+        }
+
+        const Post1 = new Post('Kate', 'test,test,test', new Date());
+        console.log(Post1);
+        Post1.edit('gfjcghkvhkjhlb');
+        console.log(Post1);
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        // заменяет значение на true
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        const attachedPost1 = new AttachedPost('Ivan', 'Hello, world', new Date());
+        console.log(attachedPost1.highlighted);
+        console.log(attachedPost1);
+        attachedPost1.makeTextHighlighted();
+        attachedPost1.edit("It's a new text");
+        console.log(attachedPost1.highlighted);
+        console.log(attachedPost1);
+    </script>
+</body>
+
+</html>
